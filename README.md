@@ -1,6 +1,9 @@
 NzoS3AwsBundle
 ==============
 
+[![Build Status](https://travis-ci.org/nayzo/NzoS3AwsBundle.svg?branch=master)](https://travis-ci.org/nayzo/NzoS3AwsBundle)
+[![Latest Stable Version](https://poser.pugx.org/nzo/s3-aws-bundle/v/stable)](https://packagist.org/packages/nzo/s3-aws-bundle)
+
 The **NzoS3AwsBundle** is a Symfony Bundle used to handle **AWS S3** Files Upload.
 
 ##### Compatible with **Symfony >= 4.4**
