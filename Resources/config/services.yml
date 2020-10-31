@@ -1,0 +1,11 @@
+services:
+
+    Nzo\S3AwsBundle\S3\S3AwsHandler: "@nzo_s3_aws"
+
+    nzo_s3_aws:
+        class: Nzo\S3AwsBundle\S3\S3AwsHandler
+        arguments:
+            - "%nzo_s3_aws.aws_access_key%"
+            - "%nzo_s3_aws.aws_secret%"
+            - "%nzo_s3_aws.aws_region%"
+            - "%nzo_s3_aws.aws_bucket%"

@@ -1,0 +1,32 @@
+{
+    "name": "nzo/s3-aws-bundle",
+    "type": "symfony-bundle",
+    "description": "The NzoS3AwsBundle is a Symfony Bundle used to handle AWS S3 Files Upload.",
+    "keywords": ["S3", "AWS", "upload", "files", "amazon"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ala Eddine Khefifi",
+            "email": "alakhefifi@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Nzo\\S3AwsBundle\\": "" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nzo\\S3AwsBundle\\Tests\\": "/tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.1.3",
+        "symfony/framework-bundle": "^4.4|^5.0",
+        "aws/aws-sdk-php": "^3.138"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8 || ^5.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
