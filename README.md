@@ -47,6 +47,8 @@ Usage
 ```php
 use Nzo\S3AwsBundle\S3\S3AwsHandler;
     
+    private $s3AwsHandler;
+
     public function __construct(S3AwsHandler $s3AwsHandler)
     {
         $this->s3AwsHandler = $s3AwsHandler;
@@ -57,6 +59,10 @@ use Nzo\S3AwsBundle\S3\S3AwsHandler;
     public function uploadFilesToS3Aws(string $fileName, string $filePath)
     {
         try {
+
+            // $fileName: is used as Key in the S3 Bucket. Example: "my-image.jpg"
+            // $filePath: is the absolute path to the file. Example: "/var/www/my-image.jpg"
+
             $awsFile = $this->s3AwsHandler->uploadFile($fileName, $filePath);
 
         } catch (\Exception $e) {
