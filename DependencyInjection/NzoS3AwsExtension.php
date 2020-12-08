@@ -27,6 +27,7 @@ class NzoS3AwsExtension extends Extension
         $container->setParameter('nzo_s3_aws.aws_secret', $config['aws_secret']);
         $container->setParameter('nzo_s3_aws.aws_region', $config['aws_region']);
         $container->setParameter('nzo_s3_aws.aws_bucket', $config['aws_bucket']);
+        $container->setParameter('nzo_s3_aws.aws_endpoint', $config['aws_endpoint']);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

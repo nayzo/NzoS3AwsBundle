@@ -9,3 +9,4 @@ services:
             - "%nzo_s3_aws.aws_secret%"
             - "%nzo_s3_aws.aws_region%"
             - "%nzo_s3_aws.aws_bucket%"
+            - "%nzo_s3_aws.aws_endpoint%"

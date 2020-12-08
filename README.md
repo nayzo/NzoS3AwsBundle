@@ -35,10 +35,11 @@ return [
 # config/packages/nzo_s3_aws.yaml
 
 nzo_s3_aws:
-    aws_access_key: '%env(AWS_ACCESS_KEY)%'
-    aws_secret:     '%env(AWS_SECRET)%'
-    aws_region:     '%env(AWS_REGION)%'  (example: eu-west-1)
-    aws_bucket:     '%env(AWS_BUCKET)%'  (the bucket name and/or path)
+    aws_access_key: '%env(AWS_ACCESS_KEY)%'  required: 
+    aws_secret:     '%env(AWS_SECRET)%'      required: 
+    aws_region:     '%env(AWS_REGION)%'      required:  (example: eu-west-1)
+    aws_bucket:     '%env(AWS_BUCKET)%'      required:  (the bucket name)
+    aws_endpoint:   '%env(AWS_ENDPOINT)%'    optional:
 ```
 
 Usage
@@ -56,14 +57,14 @@ use Nzo\S3AwsBundle\S3\S3AwsHandler;
         // without autowiring use: $this->get('nzo_s3_aws')
     }
 
-    public function uploadFilesToS3Aws(string $fileName, string $filePath)
+    public function uploadFilesToS3Aws(string $key, string $filePath)
     {
         try {
 
-            // $fileName: is used as Key in the S3 Bucket. Example: "my-image.jpg"
+            // $key: it represent the file name and path in the S3 Bucket. Example: "my_folder/my-image.jpg"
             // $filePath: is the absolute path to the file. Example: "/var/www/my-image.jpg"
 
-            $awsFile = $this->s3AwsHandler->uploadFile($fileName, $filePath);
+            $awsFile = $this->s3AwsHandler->uploadFile($key, $filePath);
 
         } catch (\Exception $e) {
             // Unable to upload the file to AWS S3

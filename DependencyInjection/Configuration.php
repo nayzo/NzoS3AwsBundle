@@ -42,6 +42,9 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                     ->cannotBeEmpty()
                 ->end()
+                ->scalarNode('aws_endpoint')
+                    ->defaultNull()
+                ->end()
             ->end();
 
         return $treeBuilder;
