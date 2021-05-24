@@ -66,6 +66,10 @@ use Nzo\S3AwsBundle\S3\S3AwsHandler;
 
             $awsFile = $this->s3AwsHandler->uploadFile($key, $filePath);
 
+
+            // Public ACL (default 'private')
+            $awsFile = $this->s3AwsHandler->uploadFile($key, $filePath, 'public-read');
+
         } catch (\Exception $e) {
             // Unable to upload the file to AWS S3
         }

@@ -11,6 +11,7 @@
 
 namespace Nzo\S3AwsBundle\S3;
 
+use Aws\Result;
 use Aws\S3\S3Client;
 
 class S3AwsHandler
@@ -35,7 +36,7 @@ class S3AwsHandler
         $this->awsEndpoint = $awsEndpoint;
     }
 
-    public function uploadFile(string $fileName, string $filePath): ?string
+    public function uploadFile(string $fileName, string $filePath, string $acl = 'private'): ?Result
     {
         $config = [
             'version' => 'latest',
@@ -57,10 +58,10 @@ class S3AwsHandler
                 'Bucket' => $this->awsBucket,
                 'Key' => $fileName,
                 'SourceFile' => $filePath,
+                'ACL' => $acl,
             ]
         );
 
-        // return the URL.
-        return $result['ObjectURL'];
+        return $result;
     }
 }
