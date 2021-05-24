@@ -64,11 +64,12 @@ use Nzo\S3AwsBundle\S3\S3AwsHandler;
             // $key: it represent the file name and path in the S3 Bucket. Example: "my_folder/my-image.jpg"
             // $filePath: is the absolute path to the file. Example: "/var/www/my-image.jpg"
 
-            $awsFile = $this->s3AwsHandler->uploadFile($key, $filePath);
+            $awsResult = $this->s3AwsHandler->uploadFile($key, $filePath);
 
 
             // Public ACL (default 'private')
-            $awsFile = $this->s3AwsHandler->uploadFile($key, $filePath, 'public-read');
+            $acl = 'public-read';
+            $awsResult = $this->s3AwsHandler->uploadFile($key, $filePath, $acl);
 
         } catch (\Exception $e) {
             // Unable to upload the file to AWS S3
